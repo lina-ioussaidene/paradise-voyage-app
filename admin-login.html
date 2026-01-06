@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paradise Voyage - Connexion Admin</title>
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <style>
+    :root {
+      --paradise-teal: #0ea5a7;
+      --paradise-turquoise: #0891b2;
+      --paradise-gold: #b45309;
+      --success-green-text: #166534;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, var(--paradise-teal), var(--paradise-turquoise));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container img.logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 24px;
+      color: var(--paradise-teal);
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      border-color: var(--paradise-teal);
+      outline: none;
+    }
+
+    .submit-btn, .home-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .submit-btn {
+      background: var(--paradise-teal);
+      color: #fff;
+    }
+    .submit-btn:hover {
+      background: var(--paradise-turquoise);
+    }
+
+    .home-btn {
+      background: var(--paradise-gold);
+      color: #fff;
+    }
+    .home-btn:hover {
+      background: #92400e;
+    }
+
+    .form-message {
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+    .form-message.success {
+      color: var(--success-green-text);
+      font-weight: 500;
+    }
+    .form-message.error {
+      color: #b91c1c;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <section class="login-container">
+    <img src="logo.jpg" alt="Paradise Voyage" class="logo">
+    <h2>Connexion Admin</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit" class="submit-btn">Se connecter</button>
+      <div id="loginMessage" class="form-message"></div>
+    </form>
+    <!-- Bouton retour à l'accueil -->
+    <button class="home-btn" onclick="window.location.href='index.html'">Revenir à l'accueil</button>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin-login.js"></script>
+</body>
+</html>

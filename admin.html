@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Paradise Voyage - Dashboard Admin</title>
+  <link rel="icon" type="image/png" href="logo.jpg">
+  <style>
+    /* ================================
+       Palette Paradise Voyage
+       ================================ */
+    :root {
+      --paradise-teal: #0ea5a7;
+      --paradise-turquoise: #0891b2;
+      --paradise-gold: #b45309;
+      --success-green-bg: #dcfce7;
+      --success-green-text: #166534;
+      --pending-bg: #e0f2f1;
+      --pending-text: #0f766e;
+    }
+
+    /* ================================
+       Header Admin
+       ================================ */
+    .admin-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--paradise-turquoise);
+      color: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .admin-header .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+    .admin-header h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+    .counter {
+      margin-left: auto;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* ================================
+       Boutons
+       ================================ */
+    .btn {
+      background: var(--paradise-teal);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: var(--paradise-turquoise);
+    }
+    .btn.small {
+      padding: 6px 10px;
+      font-size: 0.9rem;
+    }
+    .btn.danger {
+      background: var(--paradise-gold);
+    }
+    .btn.danger:hover {
+      background: #92400e;
+    }
+
+    /* ================================
+       Tableau Admin
+       ================================ */
+    .table-wrapper {
+      overflow: auto;
+      border-radius: 12px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .admin-table th, .admin-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+    .admin-table thead th {
+      background: var(--paradise-turquoise);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .admin-table tbody tr:nth-child(even) {
+      background: #f9fafb;
+    }
+
+    /* ================================
+       Statuts
+       ================================ */
+    .status-badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .status-badge.pending {
+      background: var(--pending-bg);
+      color: var(--pending-text);
+    }
+    .status-badge.success {
+      background: var(--success-green-bg);
+      color: var(--success-green-text);
+    }
+
+    /* ================================
+       Messages
+       ================================ */
+    .form-message.success {
+      color: var(--success-green-text);
+      font-weight: 500;
+    }
+    .form-message.error {
+      color: #b91c1c;
+      font-weight: 500;
+    }
+
+    /* ================================
+       Contrôles de pagination
+       ================================ */
+    .admin-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 12px 0;
+    }
+    .page-info {
+      font-weight: 600;
+      color: var(--paradise-teal);
+    }
+
+    /* ================================
+       Actions
+       ================================ */
+    .action-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <header class="admin-header">
+    <img src="logo.jpg" alt="Paradise Voyage" class="logo">
+    <h2>Dashboard Admin</h2>
+    <div id="counter" class="counter">Total demandes : 0</div>
+    <div id="completedCounter" class="counter">Demandes terminées : 0</div>
+    <button id="logoutBtn" class="btn danger">Déconnexion</button>
+    <!-- 👉 Tu ajouteras ici ton bouton de déconnexion -->
+    <!-- <button id="logoutBtn" class="btn danger">Déconnexion</button> -->
+  </header>
+
+  <div class="admin-controls">
+    <button id="prevBtn" class="btn">Précédent</button>
+    <span id="pageInfo" class="page-info">Page 1</span>
+    <button id="nextBtn" class="btn">Suivant</button>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Service</th>
+          <th>Message</th>
+          <th>Créé le</th>
+          <th>Statut</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="requestsTable"></tbody>
+    </table>
+  </div>
+
+  <div id="adminMessage" class="form-message"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
+

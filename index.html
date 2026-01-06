@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradise Voyage - Votre destination de rêve</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" type="image/png" href="logo.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+        <a href="#" class="logo">Paradise<span>Voyage</span></a>
+        <button class="admin-btn" onclick="window.location.href='admin-login.html'">
+            <i class="fas fa-user-cog"></i> Admin
+        </button>
+    </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>Votre voyage de rêve commence ici</h1>
+            <p>Découvrez les destinations les plus paradisiaques de la planète avec nos experts en voyage. Des expériences uniques, des souvenirs inoubliables.</p>
+            <button class="cta-btn" id="scrollToForm">Réservez votre consultation gratuite</button>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <main>
+            <section class="intro">
+                <h2>Bienvenue chez Paradise Voyage</h2>
+                <p>Depuis plus de 15 ans, nous créons des expériences de voyage sur mesure pour nos clients. Notre mission est de vous offrir des vacances inoubliables dans les plus beaux endroits du monde.</p>
+                <p>Que vous rêviez de plages de sable fin, de jungles luxuriantes, de montagnes enneigées ou de villes vibrantes, notre équipe d'experts est là pour concrétiser votre rêve.</p>
+                
+                <h3 style="color: var(--paradise-teal); margin-top: 30px;">Nos services</h3>
+                <div class="services">
+                    <div class="service-item">
+                        <h4><i class="fas fa-hotel"></i> Réservation d'hôtel</h4>
+                        <p>Trouvez l'hébergement parfait pour votre séjour, du budget au luxe, partout dans le monde.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-ticket-alt"></i> Billetterie</h4>
+                        <p>Billets d'avion, train, bus et activités au meilleur prix avec nos tarifs négociés.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-mosque"></i> Omra</h4>
+                        <p>Organisation complète de votre pèlerinage avec accompagnement spirituel et logistique.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-map-marked-alt"></i> Voyage organisé</h4>
+                        <p>Circuits tout compris avec guide, transports, hébergements et visites prévues.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-passport"></i> Rendez-vous visa</h4>
+                        <p>Assistance complète pour l'obtention de vos visas avec prise de rendez-vous et préparation des dossiers.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-shield-alt"></i> Assurance voyage</h4>
+                        <p>Protégez votre voyage avec nos assurances adaptées à chaque destination et type de séjour.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4><i class="fas fa-language"></i> Séjour linguistique</h4>
+                        <p>Apprenez une langue en immersion totale dans le pays de votre choix avec hébergement et cours.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Formulaire de contact -->
+            <section class="form-container">
+                <h3>Contactez-nous pour votre voyage</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="lastName">Nom *</label>
+                            <input type="text" id="lastName" name="last_name" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Prénom *</label>
+                            <input type="text" id="firstName" name="first_name" required placeholder="Votre prénom">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Adresse email *</label>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+213 6 23 45 67 89">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service choisi *</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Sélectionnez un service</option>
+                            <option value="reservation_hotel">Réservation d'hôtel</option>
+                            <option value="billetterie">Billetterie</option>
+                            <option value="omra">Omra</option>
+                            <option value="voyage_organise">Voyage organisé</option>
+                            <option value="rendezvous_visa">Rendez-vous visa</option>
+                            <option value="assurance_voyage">Assurance voyage</option>
+                            <option value="sejour_linguistique">Séjour linguistique</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message *</label>
+                        <textarea id="message" name="message" required placeholder="Décrivez-nous votre projet de voyage, vos envies, votre budget et toute autre information pertinente..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer la demande</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Coordonnées -->
+                <div class="footer-section contact-info">
+                    <h4>Coordonnées</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Arret Sademi centre commercial Haddag 1er sous-sol ,Azazga, Tizi Ouzou</p>
+                    <p><i class="fas fa-phone"></i> +213 550 05 92 86
+                                                    <br>
+                                                    +213 670 90 13 23
+                                                    <br>
+                                                    +213 774 17 14 59</p>
+                    <p><i class="fas fa-envelope"></i> paradisevoyage15@gmail.com</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/paradisevoyage15/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/people/paradise-voyage/61573092727559/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@paradisevoyage1?lang=fr" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Horaires -->
+                <div class="footer-section opening-hours">
+                    <h4>Horaires d'ouverture</h4>
+                    <ul>
+                        <li>Dimanche -jeudi: 08h30 - 16h30</li>
+                        <li>Vendredi - Fermé</li>
+                        <li>Samedi: 08h30  - 16h30</li>
+                    </ul>
+                </div>
+
+                <!-- Carte -->
+                <div class="footer-section">
+                    <h4>Notre agence</h4>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps?q=36.7430498,4.3701692&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 Paradise Voyage. Tous droits réservés. | Designed by DEGITALINA (Ioussaidene Lina)</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
